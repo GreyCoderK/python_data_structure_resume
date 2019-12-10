@@ -140,4 +140,72 @@ Une exception est lèvée si les types sont incomparables
 ˆ equivalent à exclusive-or(XOR ou ou-exclusive)
 << déplacement à gauche, remplace avec les 0
 >> déplacement à droite, remplace avec les bits signé
+
+*Sequence Operators
+        
+        + Pour str, tuple, and list
+        
+            s[j]                            élément avec l'index j
+            [start:stop]                    slice incluant les indices start a stop -1 [start,stop)
+            s[start:stop:step]              slice incluant les indices start, start + step, start + 2 step, . . . , pas saut de step jusqu'à stop
+            s+t                             Concatenation de sequences
+            k*s                             Autre manière de faire s + s + s + ... (k fois)
+            val in s                        Vérifie si val est contenu dans s
+            val not in s                    Vérifie si val n'est pas contenu dans s
+
+            Nb: Nous pouvons utiliser les indices négatives qui represente la position d'un élément par rapport a l'index de fin.
+                del s[j] pour effectuer une suppression de donnée
+                les comparaison sont basées sur l'ordre lexicographique
+                
+            s == t equivalent (element by element)
+            s != t not equivalent
+            s < t lexicographically less than
+            s <= t lexicographically less than or equal to
+            s > t lexicographically greater than
+            s >= t lexicographically greater than or equal to
+        
+        + Pour Set and Dictionaires
+                key in s containment check
+                key not in s non-containment check
+                s1 == s2 s1 is equivalent to s2
+                s1 != s2 s1 is not equivalent to s2
+                s1 <= s2 s1 is subset of s2
+                s1 < s2 s1 is proper subset of s2
+                s1 >= s2 s1 is superset of s2
+                s1 > s2 s1 is proper superset of s2
+                s1 | s2 the union of s1 and s2
+                s1 & s2 the intersection of s1 and s2
+                s1 − s2 the set of elements in s1 but not s2
+                s1 ˆ s2 the set of elements in precisely one of s1 or s2
+    
+                *Operateur supplémentaire
+                        d[key] value associated with given key
+                        d[key] = value set (or reset) the value associated with given key
+                        del d[key] remove key and its associated value from dictionary
+                        key in d containment check
+                        key not in d non-containment check
+                        d1 == d2 d1 is equivalent to d2
+                        d1 != d2 d1 is not equivalent to d2
+                        
+*Priorité des opérateurs
+        Type                                            Symbols
+1       member                                          access expr.member
+2       function/method calls                           expr(...)
+        container subscripts/slices expr[...]
+3       exponentiation                                  **
+4       unary operators                                 +expr, −expr, ˜expr
+5       multiplication, division                        *, /, //, %
+6       addition, subtraction                           +, −
+7       bitwise shifting                                <<, >>
+8       bitwise-and                                     &
+9       bitwise-xor                                     ˆ
+10      bitwise-or                                      |
+11      comparisons                                     is, is not, ==, !=, <, <=, >, >=
+        containment                                     in, not in
+12      logical-not                                     not expr
+13      logical-and                                     and
+14      logical-or                                      or
+15      conditional                                     val1 if cond else val2
+16      assignments                                      =, +=, −=, =, etc.
+
 """
